@@ -1,0 +1,155 @@
+{
+  "users": [
+    {
+      "userId": "0",
+      "name": "Akshay",
+      "age": "21",
+      "email": "akshay37@gmail.com",
+      "mobile": "9137423734",
+      "password": "someStrongPass",
+      "lisenceId": "HJBDWJ34346",
+      "history": [
+        {
+          "billId": "4857",
+          "billAmount": "3000",
+          "startDate": "5-21-2018",
+          "endDate": "5-23-2018",
+          "bookedDate": "5-20-2018",
+          "origin": "chennai",
+          "destination": "bangalore",
+          "vehicle_no": "3",
+          "paymentMethod": "card",
+          "category": "bike"
+        },
+        {
+          "billId": "38473",
+          "billAmount": "4000",
+          "startDate": "5-22-2018",
+          "endDate": "5-24-2018",
+          "bookedDate": "5-19-2018",
+          "origin": "trichy",
+          "destination": "bangalore",
+          "vehicle_no": "6",
+          "paymentMethod": "paytm",
+          "category": "car"
+        }
+      ]
+    },
+    {
+      "userId": "1",
+      "name": "Karthi",
+      "age": "56",
+      "email": "karthi56@gmail.com",
+      "mobile": "982367263",
+      "password": "someStrongPassKarthi",
+      "lisenceId": "KJHJDW873847",
+      "history": [
+        {
+          "billId": "3746",
+          "billAmount": "4000",
+          "startDate": "5-22-2018",
+          "endDate": "5-25-2018",
+          "bookedDate": "5-09-2018",
+          "origin": "trichy",
+          "destination": "chennai",
+          "vehicle_no": "9",
+          "paymentMethod": "card",
+          "category": "car"
+        },
+        {
+          "billId": "3847",
+          "billAmount": "2583",
+          "startDate": "7-22-2018",
+          "endDate": "7-24-2018",
+          "bookedDate": "7-19-2018",
+          "origin": "chennai",
+          "destination": "bangalore",
+          "vehicle_no": "16",
+          "paymentMethod": "paytm",
+          "category": "bike"
+        }
+      ]
+    },
+    {
+      "userId": "2",
+      "name": "Ashwin",
+      "age": "45",
+      "email": "ashwin374@gmail.com",
+      "mobile": "982367263",
+      "password": "someStrongPassKarthi",
+      "lisenceId": "JBHSCB873847",
+      "history": [
+        {
+          "billId": "34342",
+          "billAmount": "8273",
+          "startDate": "6-22-2018",
+          "endDate": "6-25-2018",
+          "bookedDate": "6-09-2018",
+          "origin": "trichy",
+          "destination": "chennai",
+          "vehicle_no": "19",
+          "paymentMethod": "paytm",
+          "category": "bike"
+        },
+        {
+          "billId": "3874",
+          "billAmount": "4857",
+          "startDate": "6-22-2018",
+          "endDate": "6-25-2018",
+          "bookedDate": "6-09-2018",
+          "origin": "trichy",
+          "destination": "bangalore",
+          "vehicle_no": "21",
+          "paymentMethod": "paytm",
+          "category": "car"
+        }
+      ]
+    },
+    {
+      "userId": "3",
+      "name": "Thanu",
+      "age": "78",
+      "email": "thanu2323@gmail.com",
+      "mobile": "982367263",
+      "password": "someStrongPassKarthi",
+      "lisenceId": "JNSJND67273",
+      "history": [
+        {
+          "billId": "38474",
+          "billAmount": "9823",
+          "startDate": "5-25-2018",
+          "endDate": "5-26-2018",
+          "bookedDate": "5-20-2018",
+          "origin": "bangalore",
+          "destination": "chennai",
+          "vehicle_no": "19",
+          "paymentMethod": "card",
+          "category": "bike"
+        }
+      ]
+    },
+    {
+      "userId": "4",
+      "name": "Mike",
+      "age": "29",
+      "email": "mike23@gmail.com",
+      "mobile": "982367263",
+      "password": "someStrongPassKarthi",
+      "lisenceId": "HBCS875685",
+      "history": [
+        {
+          "billId": "37436",
+          "billAmount": "4000",
+          "startDate": "5-22-2018",
+          "endDate": "5-25-2018",
+          "bookedDate": "5-09-2018",
+          "origin": "trichy",
+          "destination": "chennai",
+          "vehicle_no": "9",
+          "paymentMethod": "card",
+          "category": "car"
+        }
+      ]
+    }
+  ]
+}
