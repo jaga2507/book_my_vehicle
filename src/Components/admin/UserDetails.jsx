@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
 const UserDetails = (props) => {
@@ -86,15 +85,17 @@ const UserDetails = (props) => {
           })}
         </div>
       </div>
-      <Button>
-        <Link to="/allUsers">Go back</Link>
-      </Button>
+      <Link to="/admin/allUsers">
+        <button className="btn btn-primary">
+          Go back
+        </button>
+      </Link>
     </React.Fragment>
   );
 };
 
 const mapStateToProps = (state) => ({
-  users: state.user.user_data,
+  users: state.user.user_datas,
 });
 
 export default connect(mapStateToProps)(UserDetails);

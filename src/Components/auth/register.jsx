@@ -4,19 +4,20 @@ import styles from './auth.module.css';
 import { connect } from 'react-redux'
 import { register_user } from '../../Redux/userAction'
 import { Redirect, Link } from 'react-router-dom'
+import swal from 'sweetalert'
 
 
 class Register extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            id: "",
+            userId: "",
             name: "",
             age: "",
             email: "",
             mobile: "",
-            pwd: "",
-            license: "",
+            password: "",
+            lisenceId: "",
             history: []
 
         }
@@ -25,10 +26,10 @@ class Register extends Component {
         this.setState({ [e.target.name]: e.target.value })
     }
     handleSubmit = () => {
-        const { name, age, email, pwd, mobile, license } = this.state
-        if (name.length > 0 && age.length > 0 && email.length > 0 && pwd.length > 0 && mobile.length > 0 && license.length > 0) {
+        const { name, age, email, password, mobile, lisenceId } = this.state
+        if (name.length > 0 && age.length > 0 && email.length > 0 && password.length > 0 && mobile.length > 0 && lisenceId.length > 0) {
+            swal("Registered Successful", "Your Details has been saved ", "success");
             this.props.register_user(this.state);
-            console.log(this.state)
             this.setState({ name: "", mobile: "", age: "", email: "", pwd: "", license: "" })
         }
         else {
@@ -36,12 +37,10 @@ class Register extends Component {
         }
     }
     componentDidMount() {
-        this.setState({ id: this.props.user_data.length + 1 })
+        this.setState({ userId: this.props.user_data.length + 1 })
     }
     render() {
-        console.log(this.props)
-        const { is_auth, user_data } = this.props
-        console.log(is_auth, user_data)
+        const { is_auth } = this.props
         if (is_auth)
             return (<Redirect to='/' />)
         else {
@@ -55,9 +54,9 @@ class Register extends Component {
                     <br />
                     <TextField label="Age" value={this.state.age} name="age" onChange={this.handle} />
                     <br />
-                    <TextField label="License Number" value={this.state.license} name="license" onChange={this.handle} />
+                    <TextField label="License Number" value={this.state.license} name="lisenceId" onChange={this.handle} />
                     <br />
-                    <TextField label="Password" value={this.state.pwd} name="pwd" onChange={this.handle} />
+                    <TextField label="Password" value={this.state.pwd} name="password" onChange={this.handle} />
                     <br />
                     <button className={styles.submit} onClick={this.handleSubmit}>Register</button>
                     <br />

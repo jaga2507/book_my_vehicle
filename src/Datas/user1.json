@@ -1,0 +1,14 @@
+{
+    "users": [
+        {
+            "userId": "0",
+            "name": "Akshay",
+            "age": "21",
+            "email": "akshay37@gmail.com",
+            "mobile": "9137423734",
+            "password": "someStrongPass",
+            "lisenceId": "HJBDWJ34346",
+            "history": []
+        }
+    ]
+}

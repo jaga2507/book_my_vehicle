@@ -6,15 +6,14 @@ import { filterVehicle } from "../../Redux/rentAction";
 function Table({ data, totalData, changePage, changePageData, filter, num }) {
     let paginate = [];
     let j = 1;
-    console.log("Data", totalData.length);
+
     if (data.length > paginate.length) {
         for (let i = 0; i < totalData.length; i += Number(num)) {
-            console.log(i)
             paginate.push(j);
             j++;
         }
     }
-    console.log(paginate);
+
     const changeHandler = e => {
         filter(e.target.value);
     };
@@ -28,6 +27,8 @@ function Table({ data, totalData, changePage, changePageData, filter, num }) {
                         </option>
                         <option>Show All</option>
                         <option>Show Available</option>
+                        <option>Show Only Bike</option>
+                        <option>Show Only Car</option>
                         <option>Price Lower to Higher</option>
                         <option>Price Higher to Lower</option>
                     </select>
@@ -60,7 +61,7 @@ function Table({ data, totalData, changePage, changePageData, filter, num }) {
                                             <button
                                                 className="text-muted btn btn-outline-dark mx-auto d-block"
                                                 onClick={() =>
-                                                    alert("Sorry Meeting Room not available !")
+                                                    alert("Sorry Vehicle not available !")
                                                 }
                                             >
                                                 Not Available

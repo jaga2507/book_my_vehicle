@@ -6,6 +6,7 @@ import {
   SORT_USER_DATA,
   FILTER_EQUAL_USER_DATA,
   UPDATE_BILLS,
+  PAYMENT_DATA
 } from "./actionTypes";
 
 export const register_user = (datas) => {
@@ -37,6 +38,13 @@ export const booking_data = (start, end, destination, vehicle) => {
     end,
     destination,
     vehicle,
+  };
+};
+
+export const payment_data = (pay_details) => {
+  return {
+    type: PAYMENT_DATA,
+    pay_details
   };
 };
 

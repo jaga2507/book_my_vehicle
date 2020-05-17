@@ -59,77 +59,80 @@ class ViewAllBookings extends React.Component {
     let { Bills, Users } = this.props;
     return (
       <React.Fragment>
+        <h1>All Booking Details</h1>
         <Select
           onChange={this.handleChange}
           name="category"
           variant="outlined"
           value={this.state.category}
+          style={{ padding: "5px", width: "200px", marginBottom: "20px" }}
         >
           <MenuItem value={"all"}>All</MenuItem>
           <MenuItem value={"car"}>Car</MenuItem>
           <MenuItem value={"bike"}>Bike</MenuItem>
         </Select>
+        <h6 style={{ color: "red" }}>Click on table header to sort the table</h6>
         <TableContainer component={Paper}>
           <Table aria-label="simple table">
             <TableHead>
-              <TableRow>
+              <TableRow style={{ cursor: "pointer" }}>
                 <TableCell
                   onClick={() => this.handleSort("billId", true)}
-                  style={{ border: "1px solid red" }}
+                  style={{ border: "1px solid red", fontWeight: "bold", fontSize: "15px" }}
                 >
                   Bill ID
                 </TableCell>
                 <TableCell
                   onClick={() => this.handleSort("billAmount", true)}
-                  style={{ border: "1px solid red" }}
+                  style={{ border: "1px solid red", fontWeight: "bold", fontSize: "15px" }}
                 >
                   Bill Amount
                 </TableCell>
                 <TableCell
                   onClick={() => this.handleSort("category", false)}
-                  style={{ border: "1px solid red" }}
+                  style={{ border: "1px solid red", fontWeight: "bold", fontSize: "15px" }}
                 >
                   Vehicle Category
                 </TableCell>
                 <TableCell
                   onClick={() => this.handleSort("vehicle_no", true)}
-                  style={{ border: "1px solid red" }}
+                  style={{ border: "1px solid red", fontWeight: "bold", fontSize: "15px" }}
                 >
                   Vehicle Number
                 </TableCell>
                 <TableCell
                   onClick={() => this.handleSort("startDate", false)}
-                  style={{ border: "1px solid red" }}
+                  style={{ border: "1px solid red", fontWeight: "bold", fontSize: "15px" }}
                 >
                   Start date
                 </TableCell>
                 <TableCell
                   onClick={() => this.handleSort("endDate", false)}
-                  style={{ border: "1px solid red" }}
+                  style={{ border: "1px solid red", fontWeight: "bold", fontSize: "15px" }}
                 >
                   End date
                 </TableCell>
                 <TableCell
                   onClick={() => this.handleSort("bookedDate", false)}
-                  style={{ border: "1px solid red" }}
+                  style={{ border: "1px solid red", fontWeight: "bold", fontSize: "15px" }}
                 >
                   Booked date
                 </TableCell>
                 <TableCell
                   onClick={() => this.handleSort("origin", false)}
-                  style={{ border: "1px solid red" }}
+                  style={{ border: "1px solid red", fontWeight: "bold", fontSize: "15px" }}
                 >
                   Origin
                 </TableCell>
                 <TableCell
                   onClick={() => this.handleSort("destination", false)}
-                  style={{ border: "1px solid red" }}
+                  style={{ border: "1px solid red", fontWeight: "bold", fontSize: "15px" }}
                 >
                   Destination
                 </TableCell>
                 <TableCell
                   onClick={() => this.handleSort("paymentMethod", false)}
-                  style={{ border: "1px solid red" }}
+                  style={{ border: "1px solid red", fontWeight: "bold", fontSize: "15px" }}
                 >
                   Payment Mode
                 </TableCell>
@@ -178,7 +181,7 @@ class ViewAllBookings extends React.Component {
 
 const mapStateToProps = (state) => ({
   Bills: state.user.AllBills,
-  Users: state.user.user_data,
+  Users: state.user.user_datas,
 });
 
 const mapDispatchToProps = (dispatch) => {

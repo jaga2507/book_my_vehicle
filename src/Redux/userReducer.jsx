@@ -6,36 +6,37 @@ import {
   UPDATE_BILLS,
   FILTER_EQUAL_USER_DATA,
   SORT_USER_DATA,
+  PAYMENT_DATA
 } from "./actionTypes";
-import user_date from "../Datas/user.json";
+import user_date from "../Datas/user1.json";
+import user_data1 from "../Datas/user.json";
 
 const initState = {
   isauth: true,
   is_error: false,
   user_data: [...user_date.users],
+  user_datas: [...user_data1.users],
   booking: [],
+  booking_history: [],
   AllBills: "",
 };
 
-console.log(initState.user_data);
 
 const userReducer = (state = initState, action) => {
-  console.log(state.user_data);
+
   switch (action.type) {
     case REGISTER_USER:
       return {
         ...state,
         isauth: true,
-        user_data: [...state.user_data, action.datas],
+        user_data: [action.datas],
+        user_datas: [...state.user_datas, action.datas]
       };
 
     case LOGIN_USER:
-      let get_user = state.user_data.filter(
-        (item) => item.email === action.email
-      );
       if (
-        get_user[0].email === action.email &&
-        get_user[0].pwd === action.pwd
+        state.user_data[0].email === action.email &&
+        state.user_data[0].password === action.pwd
       ) {
         return {
           ...state,
@@ -68,10 +69,28 @@ const userReducer = (state = initState, action) => {
         booking: temp,
       };
 
+    case PAYMENT_DATA:
+      let req = state.user_datas.filter((item) => item.userId === state.user_data[0].userId)
+      let bill_datas = state.user_datas
+      for (let i = 0; i < bill_datas.length; i++) {
+        if (req[0].userId === bill_datas[i].userId) {
+          bill_datas[i].history.push(action.pay_details)
+        }
+      }
+
+      let up = state.user_data[0]
+      up.history.push(action.pay_details)
+      return {
+        ...state,
+        user_data: [up],
+        user_datas: bill_datas,
+        booking_history: [...state.booking_history, action.pay_details]
+      }
+
     case UPDATE_BILLS:
       let updatedBills = [];
-      Object.keys(state.user_data).map((key) => {
-        let CurrentBill = state.user_data[key];
+      Object.keys(state.user_datas).map((key) => {
+        let CurrentBill = state.user_datas[key];
         updatedBills = [...updatedBills, ...CurrentBill.history];
       });
       return {
@@ -99,7 +118,6 @@ const userReducer = (state = initState, action) => {
       let { fieldName, sortType, isNumber, sortDataType } = action.payload;
       fieldName = fieldName.split(".");
       let data = state[sortDataType];
-      console.log("sortDataType , data", sortDataType, data);
       if (sortType === "ASCENDING") {
         let sorted = data.sort((a, b) => {
           let aNum = a,

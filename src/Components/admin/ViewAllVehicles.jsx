@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import ViewTable from "./ViewTable";
-import { Button, Select, MenuItem } from "@material-ui/core";
+import { Select, MenuItem } from "@material-ui/core";
 import { filterVehicleEq, sortVehicles } from "../../Redux/rentAction";
 
 class ViewAllVehicles extends React.Component {
@@ -39,15 +39,16 @@ class ViewAllVehicles extends React.Component {
   };
 
   render() {
-    const { category, lesserThan, greaterThan, available } = this.state;
-    console.log("this.props", this.props);
+    const { category, available } = this.state;
     return (
       <React.Fragment>
+        <h1>All Vehicles</h1>
         <Select
           onChange={this.handleChange}
           name="available"
           variant="outlined"
           value={available}
+          style={{ padding: "5px", marginRight: "20px", marginBottom: "20px", width: "200px" }}
         >
           <MenuItem value={"all"}>All</MenuItem>
           <MenuItem value={false}>Not Available</MenuItem>
@@ -58,31 +59,13 @@ class ViewAllVehicles extends React.Component {
           name="category"
           variant="outlined"
           value={category}
+          style={{ padding: "5px", width: "200px" }}
         >
           <MenuItem value={"all"}>All</MenuItem>
           <MenuItem value={"car"}>Car</MenuItem>
           <MenuItem value={"bike"}>Bike</MenuItem>
         </Select>
-        {/* <Select
-          onChange={this.handleChange}
-          name="lesserThan"
-          variant="outlined"
-          value={lesserThan}
-        >
-          <MenuItem value={"all"}>All</MenuItem>
-          <MenuItem value={"car"}>Ca2r</MenuItem>
-          <MenuItem value={"bike"}>Bi2ke</MenuItem>
-        </Select>
-        <Select
-          onChange={this.handleChange}
-          name="greaterThan"
-          variant="outlined"
-          value={greaterThan}
-        >
-          <MenuItem value={"all"}>All</MenuItem>
-          <MenuItem value={"car"}>Ca2r</MenuItem>
-          <MenuItem value={"bike"}>Bike</MenuItem>
-        </Select> */}
+        <h6 style={{ color: "red" }}>Click on table header to sort the table</h6>
         <ViewTable handleSort={this.handleSort} {...this.props} />
       </React.Fragment>
     );

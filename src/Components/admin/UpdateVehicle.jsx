@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { TextField, Button, Select, MenuItem } from "@material-ui/core";
+import { TextField, Select, MenuItem } from "@material-ui/core";
 import { updateVehicle } from "../../Redux/rentAction";
 import { Link } from "react-router-dom";
 
@@ -83,6 +83,8 @@ class UpdateVehicle extends React.Component {
             variant="outlined"
             value={img_url}
           />
+          <br />
+          <br />
           <TextField
             onChange={this.handleChange}
             name="modal_name"
@@ -90,6 +92,8 @@ class UpdateVehicle extends React.Component {
             variant="outlined"
             value={modal_name}
           />
+          <br />
+          <br />
           <TextField
             onChange={this.handleChange}
             name="company"
@@ -97,6 +101,8 @@ class UpdateVehicle extends React.Component {
             variant="outlined"
             value={company}
           />
+          <br />
+          <br />
           <h3>Availability :</h3>
           <Select
             onChange={this.handleChange}
@@ -126,6 +132,8 @@ class UpdateVehicle extends React.Component {
             type="Number"
             value={cost.per_day}
           />
+          <br />
+          <br />
           <TextField
             onChange={this.costDataUpdate}
             name="after_5"
@@ -134,6 +142,8 @@ class UpdateVehicle extends React.Component {
             type="Number"
             value={cost.after_5}
           />
+          <br />
+          <br />
           <TextField
             onChange={this.costDataUpdate}
             name="after_10"
@@ -142,6 +152,8 @@ class UpdateVehicle extends React.Component {
             type="Number"
             value={cost.after_10}
           />
+          <br />
+          <br />
           <TextField
             onChange={this.handleChange}
             name="location"
@@ -149,6 +161,8 @@ class UpdateVehicle extends React.Component {
             variant="outlined"
             value={location}
           />
+          <br />
+          <br />
           <TextField
             onChange={this.handleChange}
             name="vehicle_no"
@@ -156,15 +170,21 @@ class UpdateVehicle extends React.Component {
             variant="outlined"
             value={vehicle_no}
           />
-          <Button onClick={this.submit} variant="outlined" color="primary">
+          <br />
+          <br />
+          <button className="btn btn-primary" style={{ marginRight: "10px" }} onClick={this.submit} variant="outlined" color="primary">
             Update Vehicle
-          </Button>
-          <Button variant="outlined" color="primary">
-            <Link to="/allVehicles">Go back</Link>
-          </Button>
-          <Button variant="outlined" color="primary">
-            <Link to="/">Home Page</Link>
-          </Button>
+          </button>
+          <Link to="/admin/allVehicles">
+            <button className="btn btn-dark" style={{ marginRight: "10px" }}>
+              Go back
+            </button>
+          </Link>
+          <Link to="/admin">
+            <button className="btn btn-success" style={{ marginRight: "10px" }}>
+              Home Page
+            </button>
+          </Link>
         </form>
       </div>
     );

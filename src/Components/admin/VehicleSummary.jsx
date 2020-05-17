@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
 const VehicleSummary = (props) => {
@@ -8,61 +7,64 @@ const VehicleSummary = (props) => {
   let VehicleData = data.find((vehicle) => {
     return vehicle.id == match.params.id;
   });
-  console.log("Vehicle summary props", props);
+
   return (
     <React.Fragment>
       <div>
+        <h1>Vehicle Details</h1>
         <div>
           <img src={VehicleData.img_url} alt="VehicleImg" />
         </div>
         <div>
-          <h3>Vehicle ID :</h3>
-          <p>{VehicleData.id}</p>
+          <p style={{ fontSize: "20px" }} ><spam style={{ fontWeight: "bold", fontSize: "20px" }}>Vehicle ID :</spam> {VehicleData.id}</p>
         </div>
         <div>
-          <h3>Availability :</h3>
-          <p>{VehicleData.available ? "Available" : "Not Available"}</p>
+          <p style={{ fontSize: "20px" }}  ><spam style={{ fontWeight: "bold", fontSize: "20px" }}>Availability :</spam> {VehicleData.available ? "Available" : "Not Available"}</p>
         </div>
         <div>
-          <h3>Model Name :</h3>
-          <p>{VehicleData.modal_name}</p>
+          <p style={{ fontSize: "20px" }} >
+            <spam style={{ fontWeight: "bold", fontSize: "20px" }}>Model Name :
+            </spam> {VehicleData.modal_name}
+          </p>
         </div>
         <div>
-          <h3>Company :</h3>
-          <p>{VehicleData.company}</p>
+          <p style={{ fontSize: "20px" }}  >
+            <spam style={{ fontWeight: "bold", fontSize: "20px" }}>Company :
+            </spam> {VehicleData.company}
+          </p>
         </div>
         <div>
-          <h3>Category :</h3>
-          <p>{VehicleData.category}</p>
+          <p style={{ fontSize: "20px" }}  ><spam style={{ fontWeight: "bold", fontSize: "20px" }}>Category :</spam> {VehicleData.category}</p>
         </div>
         <div>
-          <h3>Vehicle Number :</h3>
-          <p>{VehicleData.vehicle_no}</p>
+          <p style={{ fontSize: "20px" }}  ><spam style={{ fontWeight: "bold", fontSize: "20px" }}>Vehicle Number :</spam> {VehicleData.vehicle_no}</p>
         </div>
         <div>
-          <h3>Location :</h3>
-          <p>{VehicleData.location}</p>
+          <p style={{ fontSize: "20px" }}  ><spam style={{ fontWeight: "bold", fontSize: "20px" }}>Location :</spam> {VehicleData.location}</p>
         </div>
         <h3>Cost</h3>
         <div>
-          <h3>Per day :</h3>
-          <p>{VehicleData.cost.per_day}</p>
+          <p style={{ fontSize: "20px" }}  ><spam style={{ fontWeight: "bold", fontSize: "20px" }}>Per day :</spam> {VehicleData.cost.per_day}</p>
         </div>
         <div>
-          <h3>After 5-days :</h3>
-          <p>{VehicleData.cost.after_5}</p>
+          <p style={{ fontSize: "20px" }}  ><spam style={{ fontWeight: "bold", fontSize: "20px" }}>After 5 days :</spam> {VehicleData.cost.after_5}</p>
         </div>
         <div>
-          <h3>After 10-days :</h3>
-          <p>{VehicleData.cost.after_10}</p>
+          <p style={{ fontSize: "20px" }}  ><spam style={{ fontWeight: "bold", fontSize: "20px" }}>After 10 days :</spam> {VehicleData.cost.after_10}</p>
         </div>
       </div>
-      <Button>
-        <Link to={`${match.url}/updateVehicle`}>Update Vehicle</Link>
-      </Button>
-      <Button>
-        <Link to="/allVehicles">Go back</Link>
-      </Button>
+
+      <Link to={`${match.url}/updateVehicle`}>
+        <button className="btn btn-primary bt-lg">
+          Update Vehicle
+        </button>
+      </Link>
+      <br />
+      <br />
+      <Link to="/admin/allVehicles">
+        <button className="btn btn-danger bt-lg">Go back
+        </button>
+      </Link>
     </React.Fragment>
   );
 };

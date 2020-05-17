@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link, Route, Switch } from "react-router-dom";
+import swal from 'sweetalert'
 import logos from "../logo1.png";
 import { connect } from "react-redux";
 import Home from "../Components/common/Home";
@@ -16,11 +17,11 @@ import UpdateVehicle from "../Components/admin/UpdateVehicle";
 import ViewAllUsers from "../Components/admin/ViewAllUsers";
 import UserDetails from "../Components/admin/UserDetails";
 import ViewAllBookings from "../Components/admin/ViewAllBookings";
+import BillHistory from '../Components/common/bill_history';
+import UserInfo from '../Components/common/user_info'
 
 class Routing extends Component {
-  change = (e) => {
-    e.target.style.background = "red";
-  };
+
   render() {
     const { isauth } = this.props;
     return (
@@ -79,32 +80,35 @@ class Routing extends Component {
             <li className="nav-item">
               {isauth ? (
                 <button
-                  onClick={() => this.props.logout()}
+                  onClick={() => {
+                    swal("Logout Successful", "", "success")
+                    this.props.logout()
+                  }}
                   className="btn btn-dark"
                   style={{ marginTop: "30px" }}
                 >
                   Log Out
                 </button>
               ) : (
-                <div>
-                  <li
-                    className="nav-item"
-                    style={{ marginTop: "30px", float: "left" }}
-                  >
-                    <Link to="/register" className="text-dark nav-link">
-                      Register
+                  <div>
+                    <li
+                      className="nav-item"
+                      style={{ marginTop: "30px", float: "left" }}
+                    >
+                      <Link to="/register" className="text-dark nav-link">
+                        Register
                     </Link>
-                  </li>
-                  <li
-                    className="nav-item"
-                    style={{ marginTop: "30px", float: "left" }}
-                  >
-                    <Link to="/login" className="text-dark nav-link">
-                      Login
+                    </li>
+                    <li
+                      className="nav-item"
+                      style={{ marginTop: "30px", float: "left" }}
+                    >
+                      <Link to="/login" className="text-dark nav-link">
+                        Login
                     </Link>
-                  </li>
-                </div>
-              )}
+                    </li>
+                  </div>
+                )}
             </li>
           </ul>
           <hr />
@@ -152,7 +156,8 @@ class Routing extends Component {
               exact
               component={ViewAllBookings}
             />
-            <Route exact path="/booking" component={() => <div>home</div>} />
+            <Route exact path="/booking" component={() => <BillHistory />} />
+            <Route exact path="/user" component={() => <UserInfo />} />
             <Route
               exact
               path="/booking/:name"

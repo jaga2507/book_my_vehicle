@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import { login_user } from '../../Redux/userAction'
 import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom'
+import swal from 'sweetalert'
 
 class Login extends Component {
     constructor(props) {
@@ -19,7 +20,6 @@ class Login extends Component {
     submit = () => {
         const { pwd, username } = this.state;
         if (pwd.length > 0 && username.length > 0) {
-            console.log(this.state)
             this.props.login_user(username, pwd)
         }
         else {
@@ -28,14 +28,15 @@ class Login extends Component {
     }
 
     render() {
-        console.log(this.props)
-        const { is_auth, iserror } = this.props
-        if (is_auth)
+        const { is_auth, is_error } = this.props
+        if (is_auth) {
+            swal("Loogin Successful", "Book Your Vehicles ", "success");
             return (<Redirect to='/' />)
+        }
         else {
             return (
                 <div className={styles.login}>
-                    {iserror ? <div style={{ color: "red", margin: "2px" }}>Invalid username or password</div> : null}
+                    {is_error ? <div style={{ color: "red", marginBottom: "10px" }}>Invalid username or password</div> : null}
                     <TextField label="Username" value={this.state.username} name="username" onChange={this.handle} />
                     <br />
                     <TextField label="Password" value={this.state.pwd} name="pwd" onChange={this.handle} />

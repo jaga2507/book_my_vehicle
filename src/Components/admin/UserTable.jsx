@@ -17,46 +17,46 @@ export default (props) => {
       <TableContainer component={Paper}>
         <Table aria-label="simple table">
           <TableHead>
-            <TableRow>
+            <TableRow style={{ cursor: "pointer" }}>
               <TableCell
                 onClick={() => handleSort("userId", true)}
-                style={{ border: "1px solid red" }}
+                style={{ border: "1px solid red", fontWeight: "bold", fontSize: "15px" }}
               >
                 User ID
               </TableCell>
               <TableCell
                 onClick={() => handleSort("name", false)}
-                style={{ border: "1px solid red" }}
+                style={{ border: "1px solid red", fontWeight: "bold", fontSize: "15px" }}
               >
                 Name
               </TableCell>
               <TableCell
                 onClick={() => handleSort("age", true)}
-                style={{ border: "1px solid red" }}
+                style={{ border: "1px solid red", fontWeight: "bold", fontSize: "15px" }}
               >
                 Age
               </TableCell>
               <TableCell
                 onClick={() => handleSort("email", false)}
-                style={{ border: "1px solid red" }}
+                style={{ border: "1px solid red", fontWeight: "bold", fontSize: "15px" }}
               >
                 Email ID
               </TableCell>
               <TableCell
                 onClick={() => handleSort("mobile", true)}
-                style={{ border: "1px solid red" }}
+                style={{ border: "1px solid red", fontWeight: "bold", fontSize: "15px" }}
               >
                 Phone Number
               </TableCell>
               <TableCell
                 onClick={() => handleSort("password", false)}
-                style={{ border: "1px solid red" }}
+                style={{ border: "1px solid red", fontWeight: "bold", fontSize: "15px" }}
               >
                 Password
               </TableCell>
               <TableCell
                 onClick={() => handleSort("lisenceId", false)}
-                style={{ border: "1px solid red" }}
+                style={{ border: "1px solid red", fontWeight: "bold", fontSize: "15px" }}
               >
                 Lisence Number
               </TableCell>

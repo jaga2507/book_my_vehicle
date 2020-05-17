@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { addVehicle } from "../../Redux/rentAction";
 import { connect } from "react-redux";
-import { TextField, Button, Select, MenuItem } from "@material-ui/core";
+import { TextField, Select, MenuItem } from "@material-ui/core";
 
 class AddVehicle extends Component {
   constructor(props) {
@@ -80,28 +80,34 @@ class AddVehicle extends Component {
             onChange={this.handleChange}
             name="img_url"
             label="Vehicle image URL"
-            variant="outlined"
+            variant="filled"
             value={img_url}
           />
+          <br />
+          <br />
           <TextField
             onChange={this.handleChange}
             name="modal_name"
             label="Model Name"
-            variant="outlined"
+            variant="filled"
             value={modal_name}
           />
+          <br />
+          <br />
           <TextField
             onChange={this.handleChange}
             name="company"
             label="Company"
-            variant="outlined"
+            variant="filled"
             value={company}
           />
+          <br />
+          <br />
           <h3>Availability :</h3>
           <Select
             onChange={this.handleChange}
             name="available"
-            variant="outlined"
+            variant="filled"
             value={available}
           >
             <MenuItem value={true}>Available</MenuItem>
@@ -111,7 +117,7 @@ class AddVehicle extends Component {
           <Select
             onChange={this.handleChange}
             name="category"
-            variant="outlined"
+            variant="filled"
             value={category}
           >
             <MenuItem value={"bike"}>Bike</MenuItem>
@@ -122,49 +128,66 @@ class AddVehicle extends Component {
             onChange={this.costDataUpdate}
             name="per_day"
             label="Cost per Day"
-            variant="outlined"
+            variant="filled"
             type="Number"
             value={cost.per_day}
           />
+          <br />
+          <br />
           <TextField
             onChange={this.costDataUpdate}
             name="after_5"
             label="Cost after 5-days"
-            variant="outlined"
+            variant="filled"
             type="Number"
             value={cost.after_5}
           />
+          <br />
+          <br />
           <TextField
             onChange={this.costDataUpdate}
             name="after_10"
             label="Cost after 10-days"
-            variant="outlined"
+            variant="filled"
             type="Number"
             value={cost.after_10}
           />
+          <br />
+          <br />
           <TextField
             onChange={this.handleChange}
             name="location"
             label="location"
-            variant="outlined"
+            variant="filled"
             value={location}
           />
+          <br />
+          <br />
           <TextField
             onChange={this.handleChange}
             name="vehicle_no"
             label="Vehicle Number"
-            variant="outlined"
+            variant="filled"
             value={vehicle_no}
           />
-          <Button onClick={this.submit} variant="outlined" color="primary">
+          <br />
+          <br />
+          <button onClick={this.submit} className="btn btn-dark">
             Add Vehicle
-          </Button>
-          <Button variant="outlined" color="primary">
-            <Link to="/allVehicles">View All Vehicles</Link>
-          </Button>
-          <Button variant="outlined" color="primary">
-            <Link to="/">Home Page</Link>
-          </Button>
+          </button>
+          <br />
+          <br />
+          <Link to="/admin/allVehicles">
+            <button className="btn btn-primary">
+              View All Vehicles
+            </button>
+          </Link>
+          <br />
+          <br />
+          <Link to="/admin">
+            <button className="btn btn-success">Home Page</button>
+          </Link>
+
         </form>
       </div>
     );

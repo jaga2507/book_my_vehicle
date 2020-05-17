@@ -1,10 +1,13 @@
 export const SEARCH_VEHICLE = "SEARCH_VEHICLE";
 export const FILTER_VEHICLE = "FILTER_VEHICLE";
 export const SHOW_BOOKINGS = "SHOW_BOOKINGS";
+
 export const REGISTER_USER = "REGISTER_USER";
 export const LOGIN_USER = "LOGIN_USER";
 export const LOGOUT_USER = "LOGOUT_USER";
+
 export const BOOKING_DATA = "BOOKING_DATA";
+export const PAYMENT_DATA = "PAYMENT_DATA";
 
 export const ADD_VEHICLE = "ADD_VEHICLE";
 export const UPDATE_VEHICLE = "UPDATE_VEHICLE";

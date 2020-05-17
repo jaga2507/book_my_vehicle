@@ -3,14 +3,15 @@ import { connect } from "react-redux";
 import DataTable from "./DataTable";
 import { searchVehicle } from '../../Redux/rentAction'
 
-function Home({ auth, data, searchVehicle }) {
+function Home({ auth, data, searchVehicle, user_data, user_datas }) {
+
     const [pageNo, setPageNo] = useState(1);
     const [noOfData, setNoOfData] = useState(6);
     const [search, setSearch] = useState("");
     const indexPrevData = Math.floor((pageNo - 1) * noOfData);
     const indexCurrData = pageNo * noOfData;
     const dataToShow = data.slice(indexPrevData, indexCurrData);
-    console.log(dataToShow)
+
     const changePageData = num => {
         setNoOfData(num);
         return setPageNo(1);
@@ -22,7 +23,6 @@ function Home({ auth, data, searchVehicle }) {
     };
 
     const changePage = num => {
-        //console.log(dataToShow);
         return setPageNo(num);
     };
     return (
@@ -31,7 +31,7 @@ function Home({ auth, data, searchVehicle }) {
                 <div className="col-md-5 m-auto p-4">
                     <input
                         className="form-control text-center"
-                        placeholder="search meeting rooms "
+                        placeholder="search Vehicles "
                         value={search}
                         onChange={changeHandler}
                     />
@@ -54,6 +54,8 @@ function Home({ auth, data, searchVehicle }) {
 const mapStateToProps = state => ({
     auth: state.user.isauth,
     data: state.rent.data,
+    user_data: state.user.user_data,
+    user_datas: state.user.user_datas
 });
 const mapDispatchToProps = dispatch => ({
     searchVehicle: item => dispatch(searchVehicle(item))

@@ -2,17 +2,13 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import ISLoader from "./Isloader";
 import swal from "sweetalert"
+import { payment_data } from '../../Redux/userAction'
+import { showBookings } from '../../Redux/rentAction'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-//import { Redirect } from 'react-router-dom'
-
-
 
 
 const Payment = (props) => {
-    console.log(props)
-    const { booking } = props
-
-    const { className } = props;
+    const { booking, className } = props
 
     const [modal, setModal] = useState(false);
 
@@ -22,25 +18,43 @@ const Payment = (props) => {
         setModal(!modal)
     }
 
+    const [pay, setPay] = useState(0)
     const handleChange = (e) => {
-        console.log(e.target.value)
+        setPay(e.target.value)
     }
 
     const handleCoupon = (e) => {
-        console.log(e.target.value)
         setIscoupon(true);
         setValue(e.target.value)
     }
 
     const [iscoupon, setIscoupon] = useState(false)
     const [coupon_value, setValue] = useState(0)
+    let billId = 4890;
 
     let total = (Number(booking.vehicle.cost.per_day) * 5) - Number(coupon_value)
 
     const [loading, setLoading] = useState(false);
 
+    let today = new Date();
+    let date = (today.getMonth() + 1) + '-' + today.getDate() + '-' + today.getFullYear();
+
     const clickHandler = () => {
         setLoading(true);
+        let bill_data = {
+            "billId": String(billId++),
+            "billAmount": String(total),
+            "startDate": String(booking.startDate),
+            "endDate": String(booking.endDate),
+            "bookedDate": String(date),
+            "origin": String(booking.vehicle.location),
+            "destination": String(booking.des),
+            "vehicle_no": String(booking.vehicle.id),
+            "paymentMethod": String(pay),
+            "category": String(booking.vehicle.category)
+        }
+        props.showBookings(booking.vehicle.id)
+        props.payment_data(bill_data)
         const timer = setTimeout(() => {
             setLoading(false);
             swal("Payment Successful", "Your booking has been made! ", "success");
@@ -77,14 +91,20 @@ const Payment = (props) => {
                 <Button color="success" onClick={toggle}>Apply Coupon</Button>
                 <Modal isOpen={modal} modalTransition={{ timeout: 100 }} backdropTransition={{ timeout: 100 }}
                     toggle={toggle} className={className}>
-                    <ModalHeader toggle={toggle}>Modal title</ModalHeader>
+                    <ModalHeader toggle={toggle} className="text-center">Coupons</ModalHeader>
                     <ModalBody >
-                        <div className="text-center" onChange={handleCoupon}>
-                            <input type="radio" value="100" name="gender" />Vehicle Coupon Code for All Users : 40% Off upto Rs. 700 on Vehicle rental Order
+                        <div onChange={handleCoupon}>
+                            <label>
+                                <input type="radio" value="100" name="gender" />Vehicle Coupon Code for All Users : 40% Off upto Rs. 700 on Vehicle rental Order
+                            </label>
                             <hr />
-                            <input type="radio" value="200" name="gender" />Vehicle Promo Code - Avail Instant Rewards upto Rs. 500 on Orders via Paytm
+                            <label>
+                                <input type="radio" value="200" name="gender" />Vehicle Promo Code - Avail Instant Rewards upto Rs. 500 on Orders via Paytm
+                            </label>
                             <hr />
-                            <input type="radio" value="300" name="gender" />Vehicle Coupon Code for All Users : 40% Off upto Rs. 800 on Orders via Tez
+                            <label>
+                                <input type="radio" value="300" name="gender" />Vehicle Coupon Code for All Users : 40% Off upto Rs. 800 on Orders via Tez
+                            </label>
                         </div>
                     </ModalBody>
                     <ModalFooter>
@@ -101,7 +121,7 @@ const Payment = (props) => {
                         onChange={handleChange}
                     >
                         <option disabled selected className="text-center">
-                            Select Destination
+                            Select Payment Mode
                             </option>
                         <option>Tez</option>
                         <option>Paytm</option>
@@ -111,13 +131,19 @@ const Payment = (props) => {
                 </div>
                 <br />
 
-                <button className="btn btn-primary" onClick={clickHandler}>pay</button>
+                <button className="btn btn-primary" onClick={clickHandler}>PAY</button>
             </div >
         )
     }
 }
+
 const mapStateToProps = state => ({
     booking: state.user.booking
 })
 
-export default connect(mapStateToProps, null)(Payment);
+const mapDispatchToProps = dispatch => ({
+    payment_data: (pay_details) => dispatch(payment_data(pay_details)),
+    showBookings: (id) => dispatch(showBookings(id))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Payment);

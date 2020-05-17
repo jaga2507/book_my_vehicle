@@ -22,10 +22,10 @@ export const filterVehicle = (item) => {
   };
 };
 
-export const showBookings = (item) => {
+export const showBookings = (id) => {
   return {
     type: SHOW_BOOKINGS,
-    payload: item,
+    id
   };
 };
 

@@ -28,6 +28,8 @@ class ViewAllUsers extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <h1>All Registered Users</h1>
+        <h6 style={{ color: "red" }}>Click on table header to sort the table</h6>
         <UserTable handleSort={this.handleSort} {...this.props} />
       </React.Fragment>
     );
@@ -35,7 +37,7 @@ class ViewAllUsers extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  Users: state.user.user_data,
+  Users: state.user.user_datas,
 });
 
 const mapDispatchToProps = (dispatch) => {

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Redirect } from 'react-router-dom'
 import { connect } from "react-redux";
+import { GridSpinner } from "react-spinners-kit";
 import { booking_data } from "../../Redux/userAction";
-import ISLoader from "./Isloader";
 import swal from "sweetalert"
 
 function Booking(props) {
-    console.log(props)
+
     const [start, setStart] = useState(0);
     const [end, setEnd] = useState(0)
     const [destination, setDestination] = useState(0)
@@ -20,6 +20,7 @@ function Booking(props) {
 
     const [loading, setLoading] = useState(false);
     const [direct, setdirect] = useState(false);
+
     let name = props.match.params.name;
     let vehicle = props.data.find(ele => {
         return ele.modal_name === name;
@@ -50,16 +51,24 @@ function Booking(props) {
     }
 
     const { is_auth, user_data } = props
-    //console.log(start, end, destination)
-    //console.log(user_data)
-
 
     if (!is_auth) {
         return (<Redirect to='/login' />)
     }
 
     if (loading) {
-        return <ISLoader />;
+        return (
+            <div style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
+                <h1 >Getting bill details</h1>
+                <br />
+                <br />
+                <br />
+                <GridSpinner
+                    size={200}
+                    color="#000000"
+                />
+            </div>
+        )
     }
 
     else if (direct) {
@@ -133,6 +142,7 @@ const mapStateToProps = state => ({
     is_auth: state.user.isauth,
     user_data: state.user.user_data
 });
+
 const mapDispatchToProps = dispatch => ({
     booking_data: (start, end, destination, vehicle) => dispatch(booking_data(start, end, destination, vehicle))
 });

@@ -13,9 +13,9 @@ const initState = {
   data: [...datas.vehicle],
   copyOfData: [...datas.vehicle],
   filteredData: [...datas.vehicle],
-  user: [],
 };
-console.log(initState.data);
+
+
 const rentReducer = (state = initState, action) => {
   switch (action.type) {
     case SEARCH_VEHICLE:
@@ -70,13 +70,20 @@ const rentReducer = (state = initState, action) => {
       if (target === "Show All") {
         bookings = state.copyOfData;
       } else if (target === "Show Available") {
-        bookings = state.data.filter((ele) => ele.available === true);
-      } else if (target === "Price Lower to Higher") {
-        bookings = state.data.sort((a, b) => {
+        bookings = state.copyOfData.filter((ele) => ele.available === true);
+      }
+      else if (target === "Show Only Car") {
+        bookings = state.copyOfData.filter((ele) => ele.category === "car");
+      }
+      else if (target === "Show Only Bike") {
+        bookings = state.copyOfData.filter((ele) => ele.category === "bike");
+      }
+      else if (target === "Price Lower to Higher") {
+        bookings = state.copyOfData.sort((a, b) => {
           return a.cost.per_day - b.cost.per_day;
         });
       } else {
-        bookings = state.data.sort((a, b) => {
+        bookings = state.copyOfData.sort((a, b) => {
           return b.cost.per_day - a.cost.per_day;
         });
       }
@@ -88,18 +95,14 @@ const rentReducer = (state = initState, action) => {
 
     case SHOW_BOOKINGS: {
       let arr = state.data;
-      let filtered = arr.filter(
-        (ele) => ele.modal_name !== action.payload.name
-      );
-      arr.avaiable = false;
-      let target = action.payload;
-      target.available = false;
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i].id === action.id)
+          arr[i].available = false;
+      }
       return {
         ...state,
-        data: [...filtered, target],
-        copyOfData: [...filtered, target],
-        user: [...state.user, target],
-      };
+        data: arr
+      }
     }
 
     case SORT_DATA:
