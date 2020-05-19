@@ -59,7 +59,10 @@ function Booking(props) {
     if (loading) {
         return (
             <div style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
-                <h1 >Getting bill details</h1>
+                <br />
+                <br />
+                <h1 >Getting bill details...</h1>
+                <br />
                 <br />
                 <br />
                 <br />

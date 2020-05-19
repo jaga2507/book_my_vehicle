@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default (props) => {
   return (
-    <div >
+    <div data-aos="zoom-in" data-aos-offset="140" data-aos-delay="200" data-aos-duration="800" data-aos-easing="ease-in-out" data-aos-once="false">
       <Link to={`${props.match.url}/allVehicles`}>
         <button className="btn btn-primary btn-lg mr-4 p-4">View All Vehicles
         </button></Link>

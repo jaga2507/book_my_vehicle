@@ -6,6 +6,14 @@
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
 }
+.pwd{
+    margin-top: 10px;
+    border-top:none;
+    border-left: none;
+    border-right: none;
+    width: 200px;
+    text-decoration: none;
+}
 .header{
     width:200px;
     height:50px;
@@ -42,8 +50,8 @@
 .login{
     border: 1px solid black;
     border-radius:10px ;
-    width: 300px;
-    height: 200px;
+    width: 350px;
+    height: 250px;
     text-align: center;
     margin:auto;
     margin-top: 20px;

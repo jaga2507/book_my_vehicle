@@ -56,12 +56,12 @@ class Register extends Component {
                     <br />
                     <TextField label="License Number" value={this.state.license} name="lisenceId" onChange={this.handle} />
                     <br />
-                    <TextField label="Password" value={this.state.pwd} name="password" onChange={this.handle} />
+                    <TextField label="Password" value={this.state.password} name="password" onChange={this.handle} />
                     <br />
                     <button className={styles.submit} onClick={this.handleSubmit}>Register</button>
                     <br />
                     <br />
-                    <p>If you have an account <Link to='/login'>Sign in</Link>
+                    <p style={{ fontSize: "20px", color: "black" }}>If you have an account <Link to='/login'>Sign in</Link>
                     </p>
                 </div>
             )

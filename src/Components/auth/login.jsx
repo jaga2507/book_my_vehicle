@@ -44,7 +44,7 @@ class Login extends Component {
                     <button className={styles.submit} onClick={this.submit} >Login</button>
                     <br />
                     <br />
-                    <p>If you don't' have an account <Link to='/register'>Sign up</Link>
+                    <p style={{ fontSize: "20px", color: "black" }}>If you don't' have an account <Link to='/register'>Sign up</Link>
                     </p>
                 </div >
             )

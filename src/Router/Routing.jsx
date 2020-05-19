@@ -35,8 +35,8 @@ class Routing extends Component {
             <li
               onClick={this.change}
               name="home"
-              className="nav-item"
-              style={{ marginTop: "30px" }}
+              className="nav-item "
+              style={{ marginTop: "30px", fontSize: "20px" }}
             >
               <Link
                 onClick={this.change}
@@ -47,7 +47,7 @@ class Routing extends Component {
                 Home
               </Link>
             </li>
-            <li className="nav-item" style={{ marginTop: "30px" }}>
+            <li className="nav-item" style={{ marginTop: "30px", fontSize: "20px" }}>
               <Link
                 onClick={this.change}
                 name="book"
@@ -57,7 +57,7 @@ class Routing extends Component {
                 Bookings
               </Link>
             </li>
-            <li className="nav-item" style={{ marginTop: "30px" }}>
+            <li className="nav-item" style={{ marginTop: "30px", fontSize: "20px" }}>
               <Link
                 onClick={this.change}
                 name="user"
@@ -67,7 +67,7 @@ class Routing extends Component {
                 user
               </Link>
             </li>
-            <li className="nav-item mr-auto" style={{ marginTop: "30px" }}>
+            <li className="nav-item mr-auto" style={{ marginTop: "30px", fontSize: "20px" }}>
               <Link
                 onClick={this.change}
                 name="admin"

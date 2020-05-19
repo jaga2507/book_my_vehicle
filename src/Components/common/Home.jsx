@@ -5,6 +5,7 @@ import { searchVehicle } from '../../Redux/rentAction'
 
 function Home({ auth, data, searchVehicle, user_data, user_datas }) {
 
+
     const [pageNo, setPageNo] = useState(1);
     const [noOfData, setNoOfData] = useState(6);
     const [search, setSearch] = useState("");
@@ -22,15 +23,16 @@ function Home({ auth, data, searchVehicle, user_data, user_datas }) {
         searchVehicle(e.target.value);
     };
 
-    const changePage = num => {
+    const changePage = (num) => {
         return setPageNo(num);
     };
     return (
-        <div>
-            <div>
+        <div >
+            <div data-aos="fade-up-right" data-aos-offset="140" data-aos-delay="200" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-once="false" >
                 <div className="col-md-5 m-auto p-4">
                     <input
-                        className="form-control text-center"
+                        style={{ textAlign: "center" }}
+                        className="form-control"
                         placeholder="search Vehicles "
                         value={search}
                         onChange={changeHandler}
@@ -44,6 +46,7 @@ function Home({ auth, data, searchVehicle, user_data, user_datas }) {
                         changePage={changePage}
                         num={noOfData}
                         changePageData={changePageData}
+                        curr_page={pageNo}
                     />
                 </div>
             </div>
