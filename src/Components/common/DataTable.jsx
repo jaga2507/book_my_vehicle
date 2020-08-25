@@ -64,7 +64,7 @@ function Table({ data, totalData, changePage, changePageData, filter, num, curr_
                                             <button
                                                 className="text-muted btn btn-outline-dark mx-auto d-block"
                                                 onClick={() =>
-                                                    swal("All Fields Are Required")
+                                                    swal("The vehicle is not available")
                                                 }
                                             >
                                                 Not Available
