@@ -19,6 +19,7 @@ import UserDetails from "../Components/admin/UserDetails";
 import ViewAllBookings from "../Components/admin/ViewAllBookings";
 import BillHistory from '../Components/common/bill_history';
 import UserInfo from '../Components/common/user_info'
+import "../App.css"
 
 class Routing extends Component {
 
@@ -26,90 +27,98 @@ class Routing extends Component {
     const { isauth } = this.props;
     return (
       <>
-        <div className=" p-3">
-          <h2 className="text-center display-5">Vehicle Renting</h2>
+        <div className="profile p-3">
+          <h2 style={{ fontSize: "38px", fontWeight:"700" }} className="text-center display-5">RENT SMART</h2>
           <ul className="nav">
-            <li className="image img-fluid">
-              <img height="100px" className="nav-img" src={logos} alt="." />
-            </li>
-            <li
-              onClick={this.change}
-              name="home"
-              className="nav-item "
-              style={{ marginTop: "30px", fontSize: "20px" }}
-            >
-              <Link
+            <div className="tab" >
+
+              <li className="image img-fluid">
+                <img height="100px" className="nav-img" src={logos} alt="." />
+              </li>
+              <li
                 onClick={this.change}
                 name="home"
-                to="/"
-                className="text-dark nav-link active"
+                className="nav-item "
               >
-                Home
-              </Link>
-            </li>
-            <li className="nav-item" style={{ marginTop: "30px", fontSize: "20px" }}>
-              <Link
-                onClick={this.change}
-                name="book"
-                to="/booking"
-                className="nav-link text-dark"
-              >
-                Bookings
-              </Link>
-            </li>
-            <li className="nav-item" style={{ marginTop: "30px", fontSize: "20px" }}>
-              <Link
-                onClick={this.change}
-                name="user"
-                to="/user"
-                className="nav-link text-dark"
-              >
-                user
-              </Link>
-            </li>
-            <li className="nav-item mr-auto" style={{ marginTop: "30px", fontSize: "20px" }}>
-              <Link
-                onClick={this.change}
-                name="admin"
-                to="/admin"
-                className="nav-link text-dark"
-              >
-                admin
-              </Link>
-            </li>
-            <li className="nav-item">
-              {isauth ? (
-                <button
-                  onClick={() => {
-                    swal("Logout Successful", "", "success")
-                    this.props.logout()
-                  }}
-                  className="btn btn-dark"
-                  style={{ marginTop: "30px" }}
+                <Link
+                  onClick={this.change}
+                  name="home"
+                  to="/"
+                  className="text-dark nav-link active"
+                  style={{ fontSize: "20px", fontWeight:"700" }}
                 >
-                  Log Out
-                </button>
-              ) : (
-                  <div>
-                    <li
-                      className="nav-item"
-                      style={{ marginTop: "30px", float: "left" }}
-                    >
-                      <Link to="/register" className="text-dark nav-link">
-                        Register
-                    </Link>
-                    </li>
-                    <li
-                      className="nav-item"
-                      style={{ marginTop: "30px", float: "left" }}
-                    >
-                      <Link to="/login" className="text-dark nav-link">
-                        Login
-                    </Link>
-                    </li>
-                  </div>
-                )}
-            </li>
+                  Home
+                </Link>
+              </li>
+              <li className="nav-item" >
+                <Link
+                  onClick={this.change}
+                  name="book"
+                  to="/booking"
+                  className="nav-link text-dark"
+                  style={{ fontSize: "20px", fontWeight:"700" }}
+                >
+                  Bookings
+                </Link>
+              </li>
+              <li className="nav-item" >
+                <Link
+                  onClick={this.change}
+                  name="user"
+                  to="/user"
+                  className="nav-link text-dark"
+                  style={{ fontSize: "20px", fontWeight:"700" }}
+                >
+                  user
+                </Link>
+              </li>
+              <li className="nav-item mr-auto" >
+                <Link
+                  onClick={this.change}
+                  name="admin"
+                  to="/admin"
+                  className="nav-link text-dark"
+                  style={{ fontSize: "20px", fontWeight:"700" }}
+                >
+                  admin
+                </Link>
+              </li>
+            </div>
+            <div>
+              <li className="nav-item">
+                {isauth ? (
+                  <button
+                    onClick={() => {
+                      swal("Logout Successful", "", "success")
+                      this.props.logout()
+                    }}
+                    className="btn btn-dark"
+                  style={{ fontSize: "20px", fontWeight:"700" }}
+                  >
+                    Log Out
+                  </button>
+                ) : (
+                    <div>
+                      <li
+                        className="nav-item"
+                        style={{ marginTop: "30px", float: "left" }}
+                      >
+                        <Link to="/register" className="text-dark nav-link">
+                          Register
+                      </Link>
+                      </li>
+                      <li
+                        className="nav-item"
+                        style={{ marginTop: "30px", float: "left" }}
+                      >
+                        <Link to="/login" className="text-dark nav-link">
+                          Login
+                      </Link>
+                      </li>
+                    </div>
+                  )}
+              </li>
+            </div>
           </ul>
           <hr />
         </div>

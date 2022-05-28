@@ -6,6 +6,30 @@
   height: 40vmin;
   pointer-events: none;
 }
+.profile{
+  background-image: linear-gradient(rgb(24, 178, 224),white);
+  background-repeat: no-repeat;
+  text-align: center;
+  padding-top: 40px;
+  font-size: 40px;
+}
+
+.nav{
+  display: flex;
+  align-items: center !important;
+  justify-content: space-between;
+}
+
+.tab{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.image img{
+  width: 200px;
+  height: 130px;
+  border-radius: 50%;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
